@@ -2,7 +2,7 @@
 
 ## Why this library exist
 
-Aesthetically a browser's default focus-ring (i.e. the blue outline) isn't always very pretty and many people do not want to see them. BUT, they are very important for keyboard users and play a crucial role in giving these users value feedback for which element currently has focus on the page.
+Aesthetically a browser's default focus-ring (i.e. the blue outline) isn't always very pretty and many people do not want to see them. BUT, they are very important for keyboard users and play a crucial role in giving these users valuable feedback to show which element currently has focus.
 
 This library aims to give you best of both worlds. It sets a specific CSS class on the webpage's `body` element to indicate whether a focus-ring should be shown or not, depending on whether the user interacts with the page via keyboard or a pointing device, like a mouse.
 
