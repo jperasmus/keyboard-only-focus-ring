@@ -1,7 +1,7 @@
 {
   "name": "keyboard-only-focus-ring",
   "author": "JP Erasmus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "module": "dist/keyboard-only-focus-ring.esm.js",
   "main": "dist/index.js",
@@ -12,6 +12,13 @@
   ],
   "engines": {
     "node": ">=10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jperasmus/keyboard-only-focus-ring.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jperasmus/keyboard-only-focus-ring/issues"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -40,7 +47,7 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   }

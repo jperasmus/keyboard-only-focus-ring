@@ -64,6 +64,16 @@ const App = () => {
 }
 ```
 
+## Troubleshooting
+
+This library uses the `CSSStyleSheet[].insertRule` method to inject the snippet of CSS required to disable the default outline. Internet Explorer doesn't doesn't support this method, so you can either [polyfill it](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule#Polyfill) or simply add the following CSS somewhere in your app's global styles:
+
+```css
+.js-no-focus-ring * {
+  outline: none;
+}
+```
+
 ## License
 
 MIT
