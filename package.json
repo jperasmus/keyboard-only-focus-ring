@@ -1,7 +1,7 @@
 {
   "name": "keyboard-only-focus-ring",
   "author": "JP Erasmus",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "license": "MIT",
   "module": "dist/keyboard-only-focus-ring.esm.js",
   "main": "dist/index.js",
