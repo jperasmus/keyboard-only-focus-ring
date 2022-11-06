@@ -1,4 +1,4 @@
-# Keyboard-only Focus-ring React Hook
+# Keyboard-only Focus-ring
 
 ## Why this library exist
 
@@ -28,34 +28,34 @@ npm install keyboard-only-focus-ring
 
 ## Usage
 
-Once you've installed the library, you can use it either as a React.js hook or component. Both options take the same **optional** props.
+Once you've installed the library, you can use it either as a React.js hook, component or provider. All options take the same **optional** props.
 
 > It is recommended to use this component as close to your top-most React component (like your `App` component) and to use it only once.
 
 ### useKeyboardFocusRing hook
 
-```typescript
-import { useKeyboardFocusRing } from 'keyboard-only-focus-ring';
+```tsx
+import { useKeyboardFocusRing } from 'keyboard-only-focus-ring'
 
 const App = () => {
-  // Example shows default values for all props
+  // Example shows default values for all props (they are all optional)
   const enabled = useKeyboardFocusRing({
     defaultEnabled: true,
     stylesheetId: '__keyboardOnlyFocusRing__',
-  });
+  })
 
-  return <div>Focus ring enabled? {enabled ? 'Yes' : 'No'}</div>;
-};
+  return <div>Focus ring enabled? {enabled ? 'Yes' : 'No'}</div>
+}
 ```
 
 ### KeyboardFocusRing component
 
-```typescript
+```tsx
 import { KeyboardFocusRing } from 'keyboard-only-focus-ring'
 
 const App = () => {
   return (
-    <KeyboardFocusRing defaultEnabled={true} stylesheetId="__keyboardOnlyFocusRing__">
+    <KeyboardFocusRing defaultEnabled={false} stylesheetId="someCustomId">
       {({ enabled }) => (
         Focus ring enabled? {enabled ? 'Yes' : 'No'}
       )}
@@ -64,9 +64,32 @@ const App = () => {
 }
 ```
 
+### KeyboardFocusRingProvider component
+
+```tsx
+import {
+  KeyboardFocusRingProvider,
+  useKeyboardFocusRingEnabled,
+} from 'keyboard-only-focus-ring'
+
+const Child = () => {
+  const enabled = useKeyboardFocusRingEnabled()
+
+  return <div>Focus ring enabled? {enabled ? 'Yes' : 'No'}</div>
+}
+
+const App = () => {
+  return (
+    <KeyboardFocusRingProvider>
+      <Child />
+    </KeyboardFocusRingProvider>
+  )
+}
+```
+
 ## Troubleshooting
 
-This library uses the `CSSStyleSheet[].insertRule` method to inject the snippet of CSS required to disable the default outline. Internet Explorer doesn't doesn't support this method, so you can either [polyfill it](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule#Polyfill) or simply add the following CSS somewhere in your app's global styles:
+This library uses the `CSSStyleSheet[].insertRule` method to inject the snippet of CSS required to disable the default outline. Internet Explorer doesn't support this method, so you can either [polyfill it](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule#Polyfill) or simply add the following CSS somewhere in your app's global styles:
 
 ```css
 .js-no-focus-ring * {
